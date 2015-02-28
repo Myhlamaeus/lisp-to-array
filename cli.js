@@ -24,7 +24,7 @@ cli.main(function(args, options) {
             cli.fatal("An error occured while reading '" + args[0] + "'");
         }
 
-        out = JSON.stringify(lispToJson.parser.parse(String(content)));
+        out = JSON.stringify(lispToJson.parse(String(content)));
         if(options.output) {
             fs.writeFile(options.output, out, function(err) {
                 if(err) {

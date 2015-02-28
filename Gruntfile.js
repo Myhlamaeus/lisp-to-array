@@ -98,8 +98,30 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.task.registerTask("cleanupExports:dist", function() {
+        var done = this.async(),
+            fs = require("fs");
+
+        fs.readFile("dist/lisp-to-json.js", function(err, data) {
+            if(err) {
+                grunt.fail.warn(err);
+                done();
+                return;
+            }
+
+            var content = String(data).split("if (typeof require !== 'undefined' && typeof exports !== 'undefined')")[0] + "module.exports=parser;";
+
+            fs.writeFile("dist/lisp-to-json.js", content, function(err) {
+                if(err) {
+                    grunt.fail.warn(err);
+                }
+                done();
+            });
+        });
+    });
+
     grunt.task.registerTask("test", ["jshint:all", "jshint:test", "mochaTest"]);
 
-    grunt.task.registerTask("build", ["jison:dist", "uglify:dist"]);
-    grunt.task.registerTask("build:browser", ["jison:dist", "browserify:dist", "uglify:distBrowser"]);
+    grunt.task.registerTask("build", ["jison:dist", "cleanupExports:dist", "uglify:dist"]);
+    grunt.task.registerTask("build:browser", ["jison:dist", "cleanupExports:dist", "browserify:dist", "uglify:distBrowser"]);
 };
