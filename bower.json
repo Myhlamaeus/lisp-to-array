@@ -1,0 +1,22 @@
+{
+  "name": "lisp-to-json",
+  "main": "lisp-to-json.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ileri/lisp-to-json",
+  "authors": [
+    "Malte-Maurice Dreyer <dreyer.maltem+dev@gmail.com>"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "license": "GPL-3.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
