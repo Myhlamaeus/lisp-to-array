@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /* jshint node: true */
 
 var cli = require("cli"),
