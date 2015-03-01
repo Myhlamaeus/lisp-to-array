@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* jshint node: true */
+/* jshint node: true, evil: true */
 
 var cli = require("cli"),
     lispToJson = require("./"),
