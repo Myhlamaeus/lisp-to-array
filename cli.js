@@ -7,7 +7,8 @@ var cli = require("cli"),
     m = require("mal.json/miniMAL-node")();
 
 cli.parse({
-    output: ["o", "File to save output to", "file"]
+    output: ["o", "File to save output to", "file"],
+    exec: ["e", "Execute"]
 });
 
 cli.setUsage("lisptojson [OPTIONS] FILE");
@@ -26,7 +27,11 @@ cli.main(function(args, options) {
                 cli.fatal("An error occured while reading '" + args[0] + "'");
             }
 
-            out = JSON.stringify(lispToJson.parse(String(content)));
+            out = lispToJson.parse(String(content));
+            if(options.exec) {
+                out = m.eval(out);
+            }
+            out = JSON.stringify(out);
             if(options.output) {
                 fs.writeFile(options.output, out, function(err) {
                     if(err) {
