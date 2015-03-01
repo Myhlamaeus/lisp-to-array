@@ -50,6 +50,10 @@ listContent
         {$$ = [$1].concat($2)}
     | TOKEN
         {$$ = [$1]}
+    | list arguments
+        {$$ = [$1].concat($2)}
+    | list
+        {$$ = [$1]}
     ;
 
 list
