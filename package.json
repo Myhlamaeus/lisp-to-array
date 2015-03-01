@@ -1,22 +1,22 @@
 {
-  "name": "lisp-to-json",
-  "version": "0.4.0",
-  "description": "lisp-to-json",
-  "main": "dist/lisp-to-json.js",
+  "name": "lisp-to-array",
+  "version": "0.0.0",
+  "description": "lisp-to-array",
+  "main": "dist/lisp-to-array.js",
   "scripts": {
     "test": "grunt test",
     "prepublish": "grunt build"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ileri/lisp-to-json.git"
+    "url": "https://github.com/ileri/lisp-to-array.git"
   },
   "author": "Malte-Maurice Dreyer <dreyer.maltem@gmail.com>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/ileri/lisp-to-json/issues"
+    "url": "https://github.com/ileri/lisp-to-array/issues"
   },
-  "homepage": "https://github.com/ileri/lisp-to-json",
+  "homepage": "https://github.com/ileri/lisp-to-array",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-browserify": "^3.4.0",

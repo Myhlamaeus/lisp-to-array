@@ -2,7 +2,7 @@
 /* jshint node: true, evil: true */
 
 var cli = require("cli"),
-    lispToJson = require("./"),
+    lispToArray = require("./"),
     fs = require("fs"),
     m = require("mal.json/miniMAL-node")();
 
@@ -11,7 +11,7 @@ cli.parse({
     exec: ["e", "Execute"]
 });
 
-cli.setUsage("lisptojson [OPTIONS] FILE");
+cli.setUsage("lispToArray [OPTIONS] FILE");
 
 cli.main(function(args, options) {
     if(args.length) {
@@ -27,7 +27,7 @@ cli.main(function(args, options) {
                 cli.fatal("An error occured while reading '" + args[0] + "'");
             }
 
-            out = lispToJson(String(content));
+            out = lispToArray(String(content));
             if(options.exec) {
                 out = m.eval(out);
             }
@@ -51,7 +51,7 @@ cli.main(function(args, options) {
         require("repl").start({
             eval: function(cmd, context, filename, callback) {
                 try {
-                    callback(JSON.stringify(m.eval(lispToJson(cmd))));
+                    callback(JSON.stringify(m.eval(lispToArray(cmd))));
                 } catch(e) {
                     callback(e);
                     return;

@@ -21,7 +21,7 @@ module.exports = function (grunt) {
     // Define the configuration for all the tasks
     grunt.initConfig({
         config: {
-            main: "lisp-to-json",
+            main: "lisp-to-array",
             dist: "dist"
         },
         watch: {
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     browserifyOptions: {
-                        standalone: "lispToJson"
+                        standalone: "lispToArray"
                     }
                 },
                 files: {
@@ -102,7 +102,7 @@ module.exports = function (grunt) {
         var done = this.async(),
             fs = require("fs");
 
-        fs.readFile("dist/lisp-to-json.js", function(err, data) {
+        fs.readFile("dist/lisp-to-array.js", function(err, data) {
             if(err) {
                 grunt.fail.warn(err);
                 done();
@@ -111,7 +111,7 @@ module.exports = function (grunt) {
 
             var content = String(data).split("if (typeof require !== 'undefined' && typeof exports !== 'undefined')")[0] + "module.exports=parser.parse.bind(parser);";
 
-            fs.writeFile("dist/lisp-to-json.js", content, function(err) {
+            fs.writeFile("dist/lisp-to-array.js", content, function(err) {
                 if(err) {
                     grunt.fail.warn(err);
                 }
