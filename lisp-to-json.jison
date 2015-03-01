@@ -45,7 +45,14 @@ argument
         {$$ = $1}
     ;
 
+listContent
+    : TOKEN arguments
+        {$$ = [$1].concat($2)}
+    | TOKEN
+        {$$ = [$1]}
+    ;
+
 list
-    : LIST_START TOKEN arguments LIST_END
-        {$$ = [$2].concat($3)}
+    : LIST_START listContent LIST_END
+        {$$ = $2}
     ;
