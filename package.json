@@ -30,7 +30,8 @@
     "time-grunt": "^1.0.0"
   },
   "dependencies": {
-    "cli": "^0.6.5"
+    "cli": "^0.6.5",
+    "mal.json": "git://github.com/kanaka/miniMAL#gh-pages"
   },
   "bin": "./cli.js"
 }
