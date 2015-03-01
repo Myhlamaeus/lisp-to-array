@@ -63,7 +63,7 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     browserifyOptions: {
-                        standalone: "miniMALToJSON"
+                        standalone: "lispToJson"
                     }
                 },
                 files: {
