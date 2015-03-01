@@ -11,7 +11,7 @@ cli.parse({
     exec: ["e", "Execute"]
 });
 
-cli.setUsage("lispToArray [OPTIONS] FILE");
+cli.setUsage("lispToArray [OPTIONS] [FILE]");
 
 cli.main(function(args, options) {
     if(args.length) {
