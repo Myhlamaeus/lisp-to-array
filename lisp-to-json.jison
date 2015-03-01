@@ -6,14 +6,14 @@
 %%
 
 \s+                     /* skip whitespace */
+[0-9]+("."[0-9]+)?\b    {yytext = Number(yytext); return 'NUMBER';}
+[^\s()]+                return 'TOKEN'
 '"'                     this.begin('string');
 <string>'"'             this.popState();
 <string>(?:\\\"|[^"])*  {yytext = yytext.replace(/\\"/g, '"'); return 'STRING';}
 <string><<EOF>>         return 'EOF_IN_STRING';
 "("                     return 'LIST_START'
 ")"                     return 'LIST_END'
-[^\s()]+                return 'TOKEN'
-[0-9]+("."[0-9]+)?\b    return 'NUMBER'
 <<EOF>>                 return 'EOF'
 
 /lex
