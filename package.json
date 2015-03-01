@@ -1,6 +1,6 @@
 {
   "name": "lisp-to-json",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "lisp-to-json",
   "main": "dist/lisp-to-json.js",
   "scripts": {
