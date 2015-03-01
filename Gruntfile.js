@@ -109,7 +109,7 @@ module.exports = function (grunt) {
                 return;
             }
 
-            var content = String(data).split("if (typeof require !== 'undefined' && typeof exports !== 'undefined')")[0] + "module.exports=parser;";
+            var content = String(data).split("if (typeof require !== 'undefined' && typeof exports !== 'undefined')")[0] + "module.exports=parser.parse.bind(parser);";
 
             fs.writeFile("dist/lisp-to-json.js", content, function(err) {
                 if(err) {

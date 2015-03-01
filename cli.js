@@ -27,7 +27,7 @@ cli.main(function(args, options) {
                 cli.fatal("An error occured while reading '" + args[0] + "'");
             }
 
-            out = lispToJson.parse(String(content));
+            out = lispToJson(String(content));
             if(options.exec) {
                 out = m.eval(out);
             }
@@ -51,7 +51,7 @@ cli.main(function(args, options) {
         require("repl").start({
             eval: function(cmd, context, filename, callback) {
                 try {
-                    callback(JSON.stringify(m.eval(lispToJson.parse(cmd))));
+                    callback(JSON.stringify(m.eval(lispToJson(cmd))));
                 } catch(e) {
                     callback(e);
                     return;
