@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>lisp-to-array</title>
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            html, body, form {
+                width: 100%;
+                height: 100%;
+            }
+
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                padding: 8px;
+            }
+
+            form > * {
+                width: 100%;
+                height: calc(85% / 2 - 8px);
+                margin-top: 8px;
+            }
+
+            .error {
+                height: calc(15% - 8px);
+            }
+
+            form > :first-child {
+                margin-top: 0;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-top: 0;
+                margin-bottom: 0.75rem;
+            }
+
+            textarea, output {
+                width: 100%;
+                height: calc(100% - 2.25rem);
+            }
+
+            [name="error"] {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form name="lisp-to-array">
+            <section>
+                <header>
+                    <h2>Input</h2>
+                </header>
+
+                <textarea name="input">(test 1 2)</textarea>
+            </section>
+            <section class="error">
+                <header>
+                    <h2>Error</h2>
+                </header>
+
+                <output name="error"></output>
+            </section>
+            <section>
+                <header>
+                    <h2>Output</h2>
+                </header>
+
+                <output name="output"></output>
+            </section>
+        </form>
+
+        <script src="dist/browser.min.js"></script>
+    </body>
+</html>
