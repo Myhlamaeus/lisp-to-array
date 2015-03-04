@@ -9,16 +9,24 @@
         err = form.querySelector("[name=\"error\"]");
 
     inp.getSession().on("change", function() {
-        var content;
+        var content, errContent;
 
         try {
             content = lispToArray(inp.getValue());
         } catch(e) {
             err.textContent = e.toString();
+            errContent = e.toString().split(/on line /)[1].split(":");
+            inp.getSession().setAnnotations([{
+                row: Number(errContent[0].match(/\d+$/)[0]) - 1,
+                column: 0,
+                text: errContent.slice(1).join(":").trim().slice(1).trim(),
+                type: "error"
+            }]);
         }
 
         if(content) {
-            out.setValue(JSON.stringify(content).replace(/,\s*/g, ", "));
+            inp.getSession().setAnnotations([]);
+            out.setValue(JSON.stringify(content).replace(/,\s*/g, ", "), -1);
             err.textContent = "";
         }
     });
@@ -29,5 +37,5 @@
         editor.setReadOnly("disabled" in editor.container.dataset);
     });
 
-    inp.setValue(inp.getValue());
+    inp.setValue(inp.getValue(), 1);
 })(document);
