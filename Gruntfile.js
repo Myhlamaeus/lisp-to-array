@@ -41,11 +41,6 @@ module.exports = function (grunt) {
                     screwIE8: true
                 },
                 files: {
-                    "<%= config.dist %>/<%= config.main %>.min.js": "<%= config.dist %>/<%= config.main %>.js"
-                }
-            },
-            distBrowser: {
-                files: {
                     "<%= config.dist %>/browser.min.js": "<%= config.dist %>/browser.js"
                 }
             }
@@ -62,5 +57,5 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.task.registerTask("build", ["browserify:dist", "uglify:distBrowser"]);
+    grunt.task.registerTask("build", ["browserify:dist", "uglify:dist"]);
 };
