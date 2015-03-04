@@ -42,7 +42,8 @@
                 margin-bottom: 0.75rem;
             }
 
-            textarea, output {
+            .editor {
+                display: block;
                 width: 100%;
                 height: calc(100% - 2.25rem);
             }
@@ -60,7 +61,7 @@
                     <h2>Input</h2>
                 </header>
 
-                <textarea name="input">(test 1 2)</textarea>
+                <div name="input" class="editor" data-mode="lisp">(test 1 2)</div>
             </section>
             <section class="error">
                 <header>
@@ -74,10 +75,11 @@
                     <h2>Output</h2>
                 </header>
 
-                <output name="output"></output>
+                <output name="output" class="editor" data-mode="json" data-disabled></output>
             </section>
         </form>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.8/ace.js"></script>
         <script src="dist/browser.min.js"></script>
     </body>
 </html>

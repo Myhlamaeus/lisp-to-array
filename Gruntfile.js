@@ -52,7 +52,7 @@ module.exports = function (grunt) {
         },
         browserSync: {
             ghPages: {
-                src : ["index.html"]
+                src : ["index.html", "dist/*"]
             },
             options: {
                 server: {

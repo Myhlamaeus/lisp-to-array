@@ -1,25 +1,34 @@
+/* jshint browser: true */
+/* global ace */
+
 (function(document) {
     var lispToArray = require("lisp-to-array"),
         form = document.querySelector("form[name=\"lisp-to-array\"]"),
-        inp = form.querySelector("[name=\"input\"]"),
-        out = form.querySelector("[name=\"output\"]"),
+        inp = ace.edit(form.querySelector("[name=\"input\"]")),
+        out = ace.edit(form.querySelector("[name=\"output\"]")),
         err = form.querySelector("[name=\"error\"]");
 
-    inp.addEventListener("keyup", function() {
+    inp.getSession().on("change", function() {
         var content;
 
         try {
-            content = lispToArray(this.value);
+            content = lispToArray(inp.getValue());
         } catch(e) {
             err.textContent = e.toString();
-            out.textContent = "";
+            out.setValue("");
         }
 
         if(content) {
-            out.textContent = JSON.stringify(content);
+            out.setValue(JSON.stringify(content).replace(/,\s*/g, ", "));
             err.textContent = "";
         }
     });
 
-    inp.dispatchEvent(new CustomEvent("keyup"));
+    [inp, out].forEach(function(editor) {
+        editor.setTheme("ace/theme/monokai");
+        editor.getSession().setMode("ace/mode/" + editor.container.dataset.mode);
+        editor.setReadOnly("disabled" in editor.container.dataset);
+    });
+
+    inp.setValue(inp.getValue());
 })(document);
