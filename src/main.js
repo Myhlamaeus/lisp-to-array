@@ -15,7 +15,6 @@
             content = lispToArray(inp.getValue());
         } catch(e) {
             err.textContent = e.toString();
-            out.setValue("");
         }
 
         if(content) {
