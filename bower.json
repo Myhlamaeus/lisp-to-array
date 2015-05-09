@@ -9,7 +9,7 @@
   "moduleType": [
     "node"
   ],
-  "license": "GPL-3.0",
+  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
