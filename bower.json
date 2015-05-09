@@ -7,8 +7,6 @@
     "Malte-Maurice Dreyer <dreyer.maltem+dev@gmail.com>"
   ],
   "moduleType": [
-    "amd",
-    "globals",
     "node"
   ],
   "license": "GPL-3.0",
