@@ -1,4 +1,4 @@
-# lisp-to-array
+# lisp-to-array [![Code Climate](https://codeclimate.com/github/ileri/lisp-to-array/badges/gpa.svg)](https://codeclimate.com/github/ileri/lisp-to-array) [![Build Status](https://travis-ci.org/ileri/lisp-to-array.svg)](https://travis-ci.org/ileri/lisp-to-array) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 > Transpiles lisp code to an array
 
 ## Install
