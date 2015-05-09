@@ -1,7 +1,7 @@
 {
   "name": "lisp-to-array",
   "main": "lisp-to-array.js",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/ileri/lisp-to-array",
   "authors": [
     "Malte-Maurice Dreyer <dreyer.maltem+dev@gmail.com>"
